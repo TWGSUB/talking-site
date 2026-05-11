@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Vercel
+.vercel/
+.vercel
+
+# the unprocessed photo (9MB) – the actual site uses assets/portrait.png
+assets/portrait-original.png
+
+# IDE / tooling
+.idea/
+.vscode/
+*.swp

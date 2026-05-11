@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>耿成康 · 影视飓风 Talking 摄影实习应聘</title>
+<meta name="description" content="一份关于光、关于人、关于 Talking 影像的应聘信。" />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0a0a0a;
+  --bg-soft:#111;
+  --ink:#e8e4dc;
+  --ink-dim:#8a8478;
+  --ink-faint:#494642;
+  --accent:#ffd9a8;
+  --key:#ffe2b8;
+  --fill:#9ec8ff;
+  --rim:#ffb38a;
+  --tungsten:#ffb56b;
+  --daylight:#bcd6ff;
+  --serif:"Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", serif;
+  --sans:"Noto Sans SC", "PingFang SC", "Helvetica Neue", system-ui, sans-serif;
+  --mono:"Inter", "SF Mono", monospace;
+  --mx:50vw; --my:50vh;
+  --warm:0; /* 0 = cool, 1 = warm */
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;min-height:100vh;letter-spacing:.01em}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--ink-faint);transition:border-color .3s,color .3s}
+a:hover{color:var(--accent);border-color:var(--accent)}
+button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#000}
+
+/* ---- global cursor spotlight ---- */
+.darkness{
+  position:fixed;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(620px circle at var(--mx) var(--my),
+    transparent 0%,
+    rgba(0,0,0,0) 22%,
+    rgba(0,0,0,.55) 70%,
+    rgba(0,0,0,.78) 100%);
+  transition:opacity .9s ease;
+  opacity:1;
+}
+.spotlight{
+  position:fixed;inset:0;pointer-events:none;z-index:2;
+  background:
+    radial-gradient(280px circle at var(--mx) var(--my),
+      rgba(255,225,180,.55) 0%,
+      rgba(255,225,180,.18) 35%,
+      rgba(0,0,0,0) 70%),
+    radial-gradient(700px circle at var(--mx) var(--my),
+      rgba(255,225,180,.18) 0%,
+      rgba(255,225,180,.06) 30%,
+      rgba(0,0,0,0) 65%),
+    radial-gradient(1400px circle at var(--mx) var(--my),
+      rgba(255,225,180,.05) 0%,
+      rgba(0,0,0,0) 70%);
+  mix-blend-mode:screen;
+  transition:opacity .9s ease;
+  opacity:1;
+}
+body.lights-off .darkness,
+body.lights-off .spotlight{opacity:0}
+.vignette{
+  position:fixed;inset:0;pointer-events:none;z-index:3;
+  background:radial-gradient(120% 120% at 50% 50%, transparent 45%, rgba(0,0,0,.7) 100%);
+}
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:4;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ---- layout ---- */
+main{position:relative;z-index:5}
+section{padding:14vh 6vw;position:relative}
+.wrap{max-width:780px;margin:0 auto}
+.wrap-wide{max-width:1100px;margin:0 auto}
+
+/* ---- typography ---- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.02em;line-height:1.25}
+h1{font-size:clamp(34px,5.4vw,68px);font-weight:500}
+h2{font-size:clamp(26px,3.4vw,44px);margin-bottom:.7em}
+h3{font-size:clamp(18px,1.6vw,22px);margin-bottom:.5em}
+p{font-size:clamp(15.5px,1.05vw,17.5px);margin:0 0 1.2em;color:var(--ink)}
+p+p{margin-top:0}
+.lede{font-family:var(--serif);font-size:clamp(20px,2vw,28px);line-height:1.6;color:var(--ink);font-weight:400}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:1.6em;display:inline-block}
+.eyebrow::before{content:"";display:inline-block;width:30px;height:1px;background:var(--ink-dim);vertical-align:middle;margin-right:14px;transform:translateY(-2px)}
+/* hero & closing sections sit under the cursor spotlight; eyebrow there needs higher contrast + dark halo to survive the warm wash */
+.hero .eyebrow,.closing .eyebrow{color:#f3efe6;text-shadow:0 0 4px #000,0 0 12px rgba(0,0,0,.95),0 0 28px rgba(0,0,0,.8)}
+.hero .eyebrow::before,.closing .eyebrow::before{background:#f3efe6;box-shadow:0 0 6px rgba(0,0,0,.9)}
+
+.fade{opacity:0;transform:translateY(28px);transition:opacity 1.1s cubic-bezier(.2,.65,.2,1),transform 1.1s cubic-bezier(.2,.65,.2,1)}
+.fade.in{opacity:1;transform:none}
+.fade.d1{transition-delay:.1s}.fade.d2{transition-delay:.22s}.fade.d3{transition-delay:.35s}.fade.d4{transition-delay:.5s}
+
+/* ---- nav ---- */
+nav.top{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 5vw;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-dim);
+  pointer-events:none;
+}
+nav.top .brand{pointer-events:auto;color:#f3efe6;text-shadow:0 0 4px #000,0 0 12px rgba(0,0,0,.95),0 0 28px rgba(0,0,0,.8)}
+nav.top .brand b{font-weight:500;letter-spacing:.06em}
+nav.top .meta{pointer-events:auto;display:flex;gap:24px}
+nav.top .meta span{color:#f3efe6;opacity:.95;text-shadow:0 0 4px #000,0 0 12px rgba(0,0,0,.95),0 0 28px rgba(0,0,0,.8)}
+@media(max-width:720px){nav.top .meta{display:none}}
+
+/* ---- hero ---- */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;
+  gap:6vw;padding:18vh 6vw 10vh;position:relative;overflow:hidden;
+}
+.hero .stage{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero .stage::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(50% 60% at 75% 55%, rgba(255,200,140,.07), transparent 70%);
+}
+.hero-portrait{
+  position:relative;
+  width:min(46vh,420px);aspect-ratio:3/4;
+  justify-self:center;
+  z-index:1;
+  --lx:-9999px; --ly:-9999px;
+}
+@media(max-width:880px){
+  .hero{grid-template-columns:1fr;gap:4vh;padding-top:14vh;text-align:left}
+  .hero-portrait{width:min(40vh,300px);order:-1;margin:0 auto}
+  .hero .content{padding:0}
+}
+.hero-portrait img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  user-select:none;pointer-events:none;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.7));
+}
+.hero-portrait .photo-silhouette{
+  filter:brightness(0) drop-shadow(0 30px 60px rgba(0,0,0,.6));
+  opacity:1;
+  z-index:2;
+  -webkit-mask-image:radial-gradient(circle at var(--lx) var(--ly),
+    transparent 0,
+    transparent 60px,
+    rgba(0,0,0,.55) 110px,
+    black 170px);
+          mask-image:radial-gradient(circle at var(--lx) var(--ly),
+    transparent 0,
+    transparent 60px,
+    rgba(0,0,0,.55) 110px,
+    black 170px);
+}
+.hero-portrait .photo-color{
+  z-index:1;
+  filter:contrast(1.04) saturate(.98);
+}
+.hero-portrait .glow{
+  position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:radial-gradient(220px circle at var(--lx) var(--ly),
+    rgba(255,228,184,.32) 0%,
+    rgba(255,228,184,.10) 40%,
+    transparent 70%);
+  mix-blend-mode:screen;
+  transition:opacity .4s ease;
+}
+.hero-portrait .rim-warm{
+  position:absolute;inset:0;pointer-events:none;z-index:4;
+  background:radial-gradient(140% 100% at 95% 50%, rgba(255,180,140,.18), transparent 60%);
+  mix-blend-mode:screen;opacity:.7;
+}
+.hero .content{position:relative;z-index:2;max-width:880px;text-align:left}
+.hero h1{
+  font-size:clamp(22px,3.4vw,42px);font-weight:400;line-height:1.45;
+  font-family:var(--serif);
+  letter-spacing:.01em;
+  white-space:normal;
+}
+.hero h1 br{display:block}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sub{
+  margin-top:2.2em;color:#f3efe6;font-family:var(--mono);
+  font-size:12px;letter-spacing:.3em;text-transform:uppercase;
+  text-shadow:0 0 4px #000,0 0 12px rgba(0,0,0,.95),0 0 28px rgba(0,0,0,.8);
+}
+.hero .scrolltip{
+  position:absolute;bottom:5vh;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.hero .scrolltip::after{
+  content:"";display:block;width:1px;height:36px;background:var(--ink-faint);
+  margin:14px auto 0;animation:drop 2.4s ease-in-out infinite;
+}
+@keyframes drop{0%,100%{transform:scaleY(.4);opacity:.3}50%{transform:scaleY(1);opacity:1}}
+
+/* ---- contrast diagram (lit-room vs sculpted) ---- */
+.diptych{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:3em 0}
+.diptych .panel{aspect-ratio:4/5;position:relative;border:1px solid var(--ink-faint);overflow:hidden;background:#080808;isolation:isolate}
+.diptych .panel .label{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase;z-index:5}
+.diptych .figure{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:80%;height:88%;z-index:2}
+
+/* FLAT · evenly over-lit room, no shape, no shadow */
+.panel.flat{
+  background:
+    radial-gradient(120% 90% at 50% 40%,#5a564c,#3a3630 55%,#1c1a16 90%);
+}
+.panel.flat .figure path{fill:#4a463c;filter:brightness(1)}
+.panel.flat::before{
+  content:"";position:absolute;inset:0;z-index:3;
+  background:linear-gradient(180deg,rgba(255,245,220,.12),transparent 60%);
+  pointer-events:none;
+}
+
+/* SHAPED · directional key light + soft rim, deep shadow side */
+.panel.shaped{background:#050505}
+.panel.shaped .figure path{fill:#1c1a16}
+.panel.shaped::before{
+  /* KEY: bright warm light covering left half of the figure's head + face */
+  content:"";position:absolute;inset:0;z-index:3;
+  background:
+    radial-gradient(60% 65% at 35% 28%, rgba(255,225,180,1), rgba(255,210,160,.55) 25%, rgba(255,210,160,.15) 50%, transparent 75%),
+    radial-gradient(25% 30% at 68% 55%, rgba(255,185,140,.45), transparent 60%);
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.panel.shaped::after{
+  /* deep shadow side (right + bottom) */
+  content:"";position:absolute;inset:0;z-index:4;
+  background:
+    radial-gradient(55% 55% at 88% 92%, rgba(0,0,0,.7), transparent 70%),
+    linear-gradient(115deg, transparent 45%, rgba(0,0,0,.55) 100%);
+  pointer-events:none;
+}
+@media(max-width:600px){.diptych{grid-template-columns:1fr}}
+
+/* ---- 3-point lighting demo ---- */
+.demo{padding:18vh 4vw;background:linear-gradient(180deg,#070707,#0c0a08 50%,#070707)}
+.demo-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;max-width:1180px;margin:0 auto}
+@media(max-width:900px){.demo-grid{grid-template-columns:1fr}}
+
+.lab{
+  position:relative;aspect-ratio:1/1;background:#040404;border:1px solid var(--ink-faint);
+  overflow:hidden;border-radius:2px;
+  box-shadow:inset 0 0 80px rgba(0,0,0,.8);
+  user-select:none;touch-action:none;
+}
+.lab .floor{
+  position:absolute;left:0;right:0;bottom:0;height:32%;z-index:1;
+  background:linear-gradient(180deg,transparent,rgba(255,200,150,.04));
+  border-top:1px solid rgba(255,255,255,.04);
+  pointer-events:none;
+}
+.lab .stage-grid{
+  position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:10% 10%;
+  pointer-events:none;z-index:1;
+}
+/* z-order from back to front:
+   stage-grid / floor → rim light (behind subject) → subject → key & fill (in front of subject) → handles */
+.lab .light{
+  position:absolute;border-radius:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  mix-blend-mode:screen;
+  transition:opacity .4s ease;
+}
+.lab .light.rim{
+  z-index:2;
+  background:radial-gradient(circle,rgba(255,180,140,.95),rgba(255,180,140,.35) 30%,rgba(255,180,140,0) 65%);
+  width:240px;height:240px;
+}
+.lab .subj{
+  position:absolute;left:50%;top:55%;transform:translate(-50%,-50%);
+  width:62%;height:auto;z-index:3;pointer-events:none;
+  transition:left .8s cubic-bezier(.5,0,.2,1), width .8s cubic-bezier(.5,0,.2,1), opacity .5s ease;
+}
+.lab .subj.b{opacity:0;left:50%;width:62%}
+.lab.duo .subj.a{left:34%;width:46%}
+.lab.duo .subj.b{opacity:1;left:66%;width:46%}
+.lab .subj .body{fill:#0d0d0d}
+.lab .subj .ambient{fill:#1a1814;mix-blend-mode:screen}
+.lab .light.key{
+  z-index:4;
+  background:radial-gradient(circle,rgba(255,228,184,.95),rgba(255,228,184,.35) 30%,rgba(255,228,184,0) 65%);
+  width:340px;height:340px;
+}
+.lab .light.fill{
+  z-index:4;
+  background:radial-gradient(circle,rgba(190,215,255,.6),rgba(190,215,255,.2) 30%,rgba(190,215,255,0) 65%);
+  width:300px;height:300px;
+}
+.lab .crosshair{
+  position:absolute;left:50%;top:55%;width:14px;height:14px;transform:translate(-50%,-50%);
+  z-index:3;pointer-events:none;opacity:.35;
+}
+.lab .crosshair::before,.lab .crosshair::after{content:"";position:absolute;background:var(--ink-faint)}
+.lab .crosshair::before{left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%)}
+.lab .crosshair::after{top:50%;left:0;right:0;height:1px;transform:translateY(-50%)}
+.lab .handle{
+  position:absolute;width:18px;height:18px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(255,255,255,.6);
+  background:rgba(0,0,0,.45);backdrop-filter:blur(4px);
+  cursor:grab;z-index:6;pointer-events:auto;
+  transition:transform .15s ease, box-shadow .3s ease;
+}
+.lab .handle:hover,.lab .handle.drag{transform:translate(-50%,-50%) scale(1.35);cursor:grabbing}
+.lab .handle.key{box-shadow:0 0 0 1px rgba(255,228,184,.6),0 0 18px rgba(255,228,184,.5)}
+.lab .handle.fill{box-shadow:0 0 0 1px rgba(190,215,255,.55),0 0 18px rgba(190,215,255,.4)}
+.lab .handle.rim{box-shadow:0 0 0 1px rgba(255,180,140,.55),0 0 18px rgba(255,180,140,.5)}
+.lab .handle .tag{
+  position:absolute;left:24px;top:-2px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;color:var(--ink-dim);text-transform:uppercase;white-space:nowrap;
+}
+
+.controls .row{margin:.5em 0 1.5em}
+.controls label{
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-dim);margin-bottom:8px;
+}
+.controls label .val{color:var(--ink);font-variant-numeric:tabular-nums}
+.controls input[type=range]{
+  width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:18px;
+}
+.controls input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--ink-faint)}
+.controls input[type=range]::-moz-range-track{height:1px;background:var(--ink-faint)}
+.controls input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:12px;height:12px;background:var(--ink);border-radius:50%;
+  margin-top:-5.5px;cursor:pointer;border:none;
+  transition:transform .15s ease;
+}
+.controls input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.4)}
+.controls input[type=range]::-moz-range-thumb{width:12px;height:12px;background:var(--ink);border:none;border-radius:50%;cursor:pointer}
+.controls .row.key input::-webkit-slider-thumb{background:var(--key)}
+.controls .row.fill input::-webkit-slider-thumb{background:var(--fill)}
+.controls .row.rim input::-webkit-slider-thumb{background:var(--rim)}
+
+.presets{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:32px}
+.presets button{
+  padding:14px 16px;border:1px solid var(--ink-faint);text-align:left;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-dim);transition:.3s ease;background:rgba(255,255,255,.01);
+}
+.presets button:hover,.presets button.active{border-color:var(--accent);color:var(--accent);background:rgba(255,217,168,.04)}
+.presets button .zh{display:block;font-family:var(--serif);font-size:14px;letter-spacing:.06em;color:var(--ink);margin-bottom:4px;text-transform:none}
+.presets button:hover .zh,.presets button.active .zh{color:var(--accent)}
+
+.hint{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-top:18px;display:block}
+
+/* ---- eye easter egg ---- */
+.eye-block{margin:3em 0;display:flex;justify-content:center}
+.eye-block svg{width:min(280px,60vw);height:auto;filter:drop-shadow(0 0 24px rgba(255,225,180,.25))}
+.eye-block .eyeball{fill:#f6f1e8}
+.eye-block .iris{fill:#1a1410}
+.eye-block .pupil{fill:#000}
+.eye-block .lid{fill:#0a0a0a}
+.eye-block .catchlight{fill:#fff;filter:drop-shadow(0 0 4px rgba(255,255,255,.9))}
+
+/* ---- color temp slider ---- */
+.temp{margin:3em 0 1em}
+.temp .preview{
+  height:140px;border:1px solid var(--ink-faint);position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,181,107,calc(var(--warm)*.45)),rgba(188,214,255,calc((1 - var(--warm))*.35))),#0c0c0c;
+  transition:background .4s ease;
+}
+.temp .preview::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(40% 80% at 30% 50%,rgba(255,181,107,calc(var(--warm)*.6)),transparent 70%),
+             radial-gradient(40% 80% at 70% 50%,rgba(188,214,255,calc((1 - var(--warm))*.5)),transparent 70%);
+  mix-blend-mode:screen;
+}
+.temp .preview .label{
+  position:absolute;font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(255,255,255,.5);top:12px;
+}
+.temp .preview .l-l{left:14px}.temp .preview .l-r{right:14px}
+.temp input[type=range]{width:100%;margin-top:14px}
+.temp .scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;margin-top:8px}
+
+/* ---- window light drift ---- */
+.window-anim{
+  height:160px;border:1px solid var(--ink-faint);position:relative;overflow:hidden;margin:3em 0;
+  background:#080808;
+}
+.window-anim .pane{
+  position:absolute;left:8%;top:15%;width:35%;height:70%;
+  background:linear-gradient(180deg,#1a1612,#0a0908);
+  border:1px solid rgba(255,255,255,.05);
+}
+.window-anim .pane::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,200,140,.5),rgba(180,210,255,.3));
+  animation:windowdrift 9s ease-in-out infinite;
+  mix-blend-mode:screen;
+}
+@keyframes windowdrift{
+  0%,100%{opacity:.7;background:linear-gradient(180deg,rgba(255,200,140,.6),rgba(255,170,110,.3))}
+  35%{opacity:1;background:linear-gradient(180deg,rgba(255,235,200,.9),rgba(255,200,150,.5))}
+  70%{opacity:.6;background:linear-gradient(180deg,rgba(180,210,255,.6),rgba(140,180,240,.3))}
+}
+.window-anim .floor-light{
+  position:absolute;right:5%;bottom:8%;width:55%;height:50%;
+  background:radial-gradient(50% 80% at 50% 100%,rgba(255,200,150,.4),transparent 70%);
+  animation:floordrift 9s ease-in-out infinite;
+  mix-blend-mode:screen;
+}
+@keyframes floordrift{
+  0%,100%{opacity:.7}
+  35%{opacity:1}
+  70%{opacity:.5;background:radial-gradient(50% 80% at 50% 100%,rgba(180,210,255,.4),transparent 70%)}
+}
+.window-anim .meta{
+  position:absolute;right:14px;top:14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase;
+}
+
+/* ---- about ---- */
+.about{background:linear-gradient(180deg,#0a0a0a,#0d0c0a)}
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:start;max-width:1080px;margin:0 auto}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:32px}}
+.portrait-card{
+  aspect-ratio:3/4;position:sticky;top:100px;background:#050505;border:1px solid var(--ink-faint);overflow:hidden;
+}
+.portrait-card svg{position:absolute;inset:0;width:100%;height:100%}
+.portrait-card .placeholder-tag{
+  position:absolute;left:14px;bottom:14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase;
+}
+.portrait-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;
+  filter:contrast(1.04) saturate(.9) brightness(.95);
+  background:#0a0a0a;
+}
+.portrait-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6));
+}
+.facts{display:grid;grid-template-columns:140px 1fr;gap:14px 28px;margin-top:1.8em;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;line-height:1.7;align-items:start}
+.facts dt{color:var(--ink-faint);text-transform:uppercase;letter-spacing:.22em;font-size:10px;padding-top:4px;font-weight:400}
+.facts dd{color:var(--ink);font-family:var(--sans);font-size:13.5px;font-weight:300}
+@media(max-width:560px){.facts{grid-template-columns:1fr;gap:4px 0}.facts dt{margin-top:1.2em}}
+
+/* ---- portfolio: bilibili video cards ---- */
+.portfolio{padding:14vh 6vw;background:#080808}
+.vid-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:36px 24px;margin-top:4em;max-width:1180px;margin-left:auto;margin-right:auto}
+@media(max-width:780px){.vid-grid{grid-template-columns:1fr;gap:32px}}
+
+.vidcard{
+  position:relative;border:1px solid var(--ink-faint);background:#050505;
+  transition:border-color .4s ease, transform .5s ease;
+  display:flex;flex-direction:column;
+}
+.vidcard:hover{border-color:var(--ink-dim)}
+.vidcard .player{
+  position:relative;aspect-ratio:16/9;background:#0a0a0a;overflow:hidden;cursor:pointer;
+}
+.vidcard .player iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+}
+.vidcard .poster{
+  position:absolute;inset:0;display:flex;align-items:flex-end;
+  padding:22px 24px;
+  background-image:
+    linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.78) 100%),
+    var(--cover, none),
+    linear-gradient(135deg,var(--from,#1f1814),var(--to,#070707));
+  background-size:cover, cover, cover;
+  background-position:center, center, center;
+  transition:opacity .5s ease, transform .8s ease;
+}
+.vidcard .player:hover .poster{transform:scale(1.02)}
+.vidcard .poster::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 80% at 75% 30%,rgba(255,210,160,.18),transparent 60%);
+  pointer-events:none;
+}
+.vidcard .poster .num{
+  position:absolute;top:18px;left:24px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:rgba(255,255,255,.55);text-transform:uppercase;
+}
+.vidcard .poster .title{
+  font-family:var(--serif);font-size:clamp(16px,1.6vw,20px);font-weight:500;line-height:1.4;
+  color:#f6f1e8;max-width:75%;letter-spacing:.02em;
+}
+.vidcard .play{
+  position:absolute;right:24px;bottom:22px;
+  width:54px;height:54px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.4);
+  background:rgba(0,0,0,.35);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  transition:.3s ease;color:#f6f1e8;
+}
+.vidcard .player:hover .play{
+  border-color:var(--accent);color:var(--accent);
+  background:rgba(255,217,168,.12);transform:scale(1.08);
+}
+.vidcard .play svg{width:18px;height:18px;margin-left:3px}
+.vidcard .player.playing .poster,
+.vidcard .player.playing .play{opacity:0;pointer-events:none}
+.vidcard .meta{padding:22px 24px 26px}
+.vidcard .num{font-family:var(--mono);font-size:10.5px;letter-spacing:.28em;color:var(--ink-faint);text-transform:uppercase}
+.vidcard h3{
+  font-family:var(--serif);font-size:18.5px;font-weight:500;line-height:1.45;
+  margin:.55em 0 .55em;color:var(--ink);
+}
+.vidcard .role{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-dim);
+  text-transform:uppercase;margin-bottom:1em;display:block;
+}
+.vidcard .role-zh{
+  font-family:var(--sans);font-size:13.5px;font-weight:300;line-height:1.75;
+  color:var(--ink-dim);margin:0 0 1.2em;
+}
+.vidcard .open{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-faint);
+  text-transform:uppercase;border:none;
+}
+.vidcard .open:hover{color:var(--accent)}
+
+/* ---- closing ---- */
+.closing{
+  min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:14vh 6vw;
+}
+.closing .wrap{max-width:680px}
+.closing p{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);line-height:1.7;color:var(--ink)}
+.closing p+p{margin-top:1.6em}
+.closing .em{color:var(--accent)}
+
+/* ---- footer ---- */
+/* ---- CTA actions block (between closing and footer) ---- */
+.cta{
+  display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+  padding:6vh 6vw 12vh;
+}
+.cta .btn{
+  position:relative;display:inline-flex;align-items:center;gap:14px;
+  padding:18px 32px;border:1px solid var(--ink-faint);
+  font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);background:rgba(255,255,255,.015);
+  transition:.35s ease;overflow:hidden;
+}
+.cta .btn::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 200% at 50% 100%,rgba(255,217,168,.18),transparent 60%);
+  opacity:0;transition:opacity .4s ease;mix-blend-mode:screen;
+}
+.cta .btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.cta .btn:hover::before{opacity:1}
+.cta .btn.primary{background:rgba(255,217,168,.06);border-color:rgba(255,217,168,.4)}
+.cta .btn.primary:hover{background:rgba(255,217,168,.12)}
+.cta .btn .arrow{font-size:18px;line-height:1;font-family:var(--sans)}
+
+/* ---- footer ---- */
+footer{
+  border-top:1px solid var(--ink-faint);padding:56px 6vw 56px;
+  font-family:var(--mono);font-size:12px;color:var(--ink-dim);
+}
+footer .contact-block{
+  text-align:center;margin-bottom:48px;
+}
+footer h4{font-family:var(--mono);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-faint);font-weight:400;margin-bottom:18px}
+footer .contact-block a{
+  display:block;font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);
+  font-weight:500;color:var(--ink);letter-spacing:.02em;line-height:1.4;
+  border:none;margin:10px auto;padding-bottom:3px;
+  border-bottom:1px solid transparent;transition:.3s;width:fit-content;
+}
+footer .contact-block a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+@media(max-width:640px){
+  footer .contact-block a{font-size:20px}
+}
+footer .sig{
+  font-size:10px;letter-spacing:.25em;color:var(--ink-faint);text-transform:uppercase;
+  border-top:1px solid var(--ink-faint);padding-top:24px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+
+@media(hover:none){
+  .spotlight{display:none}
+  .lab{aspect-ratio:1/1.05}
+}
+@media(max-width:720px){
+  section{padding:10vh 6vw}
+  .demo{padding:10vh 4vw}
+  .hero{padding:14vh 6vw 8vh}
+}
+</style>
+</head>
+<body>
+
+<div class="darkness" aria-hidden="true"></div>
+<div class="spotlight" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="top">
+  <div class="brand"><b>耿成康</b> &nbsp;／&nbsp; Geng Chengkang</div>
+  <div class="meta">
+    <span>应聘 影视飓风 · 摄影师（Talking 方向）实习生</span>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============== HERO ============== -->
+<section class="hero" data-lit>
+  <div class="stage" aria-hidden="true"></div>
+  <div class="hero-portrait" id="heroPortrait" aria-label="耿成康">
+    <img class="photo-color" src="assets/portrait.png" alt="耿成康"/>
+    <img class="photo-silhouette" src="assets/portrait.png" aria-hidden="true"/>
+    <div class="glow" aria-hidden="true"></div>
+    <div class="rim-warm" aria-hidden="true"></div>
+  </div>
+
+  <div class="content">
+    <span class="eyebrow fade in">耿成康 · 应聘 影视飓风 摄影师（Talking 方向）实习生</span>
+    <h1 class="fade in d1">
+      一个人坐在镜头前说话，<br/>为什么有些画面，<br/>你会愿意一直<em>看下去</em>，<br/>而有些画面，<br/>却只想立刻划走？
+    </h1>
+    <div class="sub fade in d3">移动鼠标 · 照亮周围</div>
+  </div>
+
+  <div class="scrolltip">往下滑</div>
+</section>
+
+<!-- ============== WHY TALKING ============== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow fade">01 ／ 为什么是 Talking</span>
+    <p class="lede fade d1">
+      明明都是一个人、一个景、几盏灯，甚至说的内容也差不多，但最后呈现出来的感觉，却可能完全不一样。
+    </p>
+    <div class="diptych fade d2">
+      <div class="panel flat">
+        <svg class="figure" viewBox="0 0 100 130" preserveAspectRatio="xMidYMax meet">
+          <path d="M50 18 C61 18 68 28 68 38 C68 48 61 56 50 56 C39 56 32 48 32 38 C32 28 39 18 50 18 Z M22 130 C22 90 35 65 50 65 C65 65 78 90 78 130 Z"/>
+        </svg>
+        <span class="label">flat</span>
+      </div>
+      <div class="panel shaped">
+        <svg class="figure" viewBox="0 0 100 130" preserveAspectRatio="xMidYMax meet">
+          <path d="M50 18 C61 18 68 28 68 38 C68 48 61 56 50 56 C39 56 32 48 32 38 C32 28 39 18 50 18 Z M22 130 C22 90 35 65 50 65 C65 65 78 90 78 130 Z"/>
+        </svg>
+        <span class="label">sculpted</span>
+      </div>
+    </div>
+    <p class="fade d2">
+      有的画面只是把人和景照亮了；但有的画面会让你感觉，这个人真的属于这个空间。他的脸、眼神、坐姿、身后的背景、桌上的物件、光线落下来的方式，都在一起帮助他说话。观众未必能说清楚哪里好，但会自然地觉得：这个人是可信的，这段表达是值得继续听下去的。
+    </p>
+    <p class="fade d3">
+      这也是我想应聘影视飓风摄影师（Talking 方向）实习生的原因。口播和访谈不是"简单地拍人说话"，而是一种非常考验基础判断的影像类型。它没有复杂的场面调度，也没有大量的运动镜头。镜头一架，灯一打，所有东西都会变得很诚实：人物有没有状态，光线干不干净，背景有没有层次，画面是不是有质感，观众能不能相信这个正在说话的人。
+    </p>
+    <p class="fade d3">
+      影视飓风的 Talking 内容之所以好看，不只是因为设备好、画面清楚，而是它常常能把"专业感"和"亲近感"同时做出来。很多视频的画面并不是单纯追求亮、锐、干净，而是有明确的空间关系、人物气质和内容语境。科技类内容需要专业感、精确感和信息密度；人物访谈需要亲近感和真实的交流状态。而一个好的摄影师要做的，不只是把画面拍漂亮，而是理解这期内容到底应该长成什么样。
+    </p>
+  </div>
+</section>
+
+<!-- ============== DEMO: 3-POINT LIGHTING LAB ============== -->
+<section class="demo">
+  <div class="wrap" style="margin-bottom:5vh">
+    <span class="eyebrow fade">02 ／ 三点布光实验台 · interactive</span>
+    <h2 class="fade d1">布光不是把灯摆成某种"标准答案"，<br/>而是在不断解决一个具体问题……</h2>
+    <p class="fade d2">把鼠标按在光源上，拖动它。或者按下面的预设按钮，看看四种气质的画面是怎么从同一个人身上长出来的。</p>
+  </div>
+
+  <div class="demo-grid">
+    <div class="lab" id="lab" aria-label="三点布光实验台">
+      <div class="stage-grid"></div>
+      <div class="floor"></div>
+
+      <!-- rim light renders BEHIND subject so its glow forms a halo on the silhouette edge -->
+      <div class="light rim"  id="lightRim"  style="left:78%;top:18%;opacity:.48"></div>
+
+      <svg class="subj a" viewBox="0 0 200 240" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <path class="ambient" d="M100 30 C125 30 140 55 140 80 C140 100 130 118 115 126 C140 132 165 150 180 175 C193 197 198 220 200 240 L0 240 C2 220 7 197 20 175 C35 150 60 132 85 126 C70 118 60 100 60 80 C60 55 75 30 100 30 Z"/>
+        <path class="body" d="M100 30 C125 30 140 55 140 80 C140 100 130 118 115 126 C140 132 165 150 180 175 C193 197 198 220 200 240 L0 240 C2 220 7 197 20 175 C35 150 60 132 85 126 C70 118 60 100 60 80 C60 55 75 30 100 30 Z" opacity="0.85"/>
+      </svg>
+      <!-- second subject — only visible in duo (两人对谈) preset; slightly smaller jaw to read as a different person -->
+      <svg class="subj b" viewBox="0 0 200 240" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <path class="ambient" d="M100 34 C122 34 136 56 136 78 C136 96 128 112 116 122 C138 130 162 148 178 174 C192 196 198 220 200 240 L0 240 C2 220 8 196 22 174 C38 148 62 130 84 122 C72 112 64 96 64 78 C64 56 78 34 100 34 Z"/>
+        <path class="body" d="M100 34 C122 34 136 56 136 78 C136 96 128 112 116 122 C138 130 162 148 178 174 C192 196 198 220 200 240 L0 240 C2 220 8 196 22 174 C38 148 62 130 84 122 C72 112 64 96 64 78 C64 56 78 34 100 34 Z" opacity="0.85"/>
+      </svg>
+      <div class="crosshair" aria-hidden="true"></div>
+
+      <!-- key & fill render IN FRONT of subject so they appear to light the camera-facing side -->
+      <div class="light key"  id="lightKey"  style="left:32%;top:30%;opacity:.88"></div>
+      <div class="light fill" id="lightFill" style="left:70%;top:42%;opacity:.52"></div>
+
+      <div class="handle key"  id="handleKey"  style="left:32%;top:30%" data-light="key"><span class="tag">主光 key</span></div>
+      <div class="handle fill" id="handleFill" style="left:70%;top:42%" data-light="fill"><span class="tag">辅光 fill</span></div>
+      <div class="handle rim"  id="handleRim"  style="left:78%;top:18%" data-light="rim"><span class="tag">轮廓光 rim</span></div>
+    </div>
+
+    <div class="controls">
+      <div class="row key">
+        <label>主光 · key <span class="val" id="vKey">88%</span></label>
+        <input type="range" min="0" max="100" value="88" id="iKey" />
+      </div>
+      <div class="row fill">
+        <label>辅光 · fill <span class="val" id="vFill">52%</span></label>
+        <input type="range" min="0" max="100" value="52" id="iFill" />
+      </div>
+      <div class="row rim">
+        <label>轮廓光 · rim <span class="val" id="vRim">48%</span></label>
+        <input type="range" min="0" max="100" value="48" id="iRim" />
+      </div>
+
+      <div class="presets" id="presets">
+        <button data-preset="monolog" class="active"><span class="zh">口播</span>soft key · 3:1 · subtle rim</button>
+        <button data-preset="interview"><span class="zh">采访</span>soft Rembrandt · 3:1 · doc-style</button>
+        <button data-preset="duo"><span class="zh">两人对谈</span>cross-key · 2:1 · symmetric</button>
+        <button data-preset="editorial"><span class="zh">杂志肖像</span>hard short-light · 8:1 · graphic</button>
+      </div>
+
+      <span class="hint">tip · drag the handles in the stage to move the lights</span>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:8vh">
+    <p class="fade">
+      我最近系统看了一些关于专业访谈、新闻采访和人物肖像拍摄的资料。看得越多，我越觉得布光不是把灯摆成某种"标准答案"，而是在不断解决一个具体问题：怎么让人物、空间和表达在画面里形成一个整体。
+    </p>
+    <p class="fade d1">
+      主光决定这个人的脸怎样被看见。它从哪里来，是硬一点还是柔一点，高一点还是低一点，都会改变人物的气质。辅光不是为了把所有阴影抹掉，而是让阴影变得可控。没有阴影，人会变平；阴影太重，信息又会丢失。轮廓光和逆光的作用，是把人物从背景里分离出来，让画面有前后关系。背景光、道具光和环境光则像是群众演员，它们不一定抢眼，但会告诉观众：这是一个什么样的空间，这个人处在什么样的语境里。
+    </p>
+  </div>
+</section>
+
+<!-- ============== EYE LIGHT ============== -->
+<section data-lit>
+  <div class="wrap">
+    <span class="eyebrow fade">03 ／ 眼神光</span>
+    <h2 class="fade d1">还有一个我很在意的东西，是眼神光。</h2>
+    <div class="eye-block fade d2" id="eyeBlock" aria-hidden="true">
+      <svg viewBox="0 0 280 100">
+        <g id="eyeL">
+          <ellipse class="eyeball" cx="70" cy="50" rx="42" ry="22"/>
+          <circle class="iris" cx="70" cy="50" r="16"/>
+          <circle class="pupil" cx="70" cy="50" r="7"/>
+          <circle class="catchlight" id="cL" cx="65" cy="45" r="2.4"/>
+          <path class="lid" d="M28 50 Q70 18 112 50 Q70 30 28 50 Z" opacity="0"/>
+        </g>
+        <g id="eyeR">
+          <ellipse class="eyeball" cx="210" cy="50" rx="42" ry="22"/>
+          <circle class="iris" cx="210" cy="50" r="16"/>
+          <circle class="pupil" cx="210" cy="50" r="7"/>
+          <circle class="catchlight" id="cR" cx="205" cy="45" r="2.4"/>
+        </g>
+      </svg>
+    </div>
+    <p class="fade d2">
+      它可能只是眼睛里一个很小的亮点，但有和没有，人的状态会差很多。它不是简单地"把眼睛照亮"，而是让观众感觉这个人是清醒的、鲜活的、正在和你交流的。很多时候，人物的可信度和亲近感，就藏在这些很小的细节里。
+    </p>
+    <p class="fade d3">
+      把鼠标移到上面那双眼睛附近——那个跟着你移动的小亮点，就是眼神光。
+    </p>
+  </div>
+</section>
+
+<!-- ============== REAL WORLD ============== -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow fade">04 ／ 现场不是理想的</span>
+    <h2 class="fade d1">但现场通常不会那么理想。</h2>
+    <div class="window-anim fade d2" aria-hidden="true">
+      <div class="pane"></div>
+      <div class="floor-light"></div>
+      <span class="meta">window · drifting</span>
+    </div>
+    <p class="fade d2">
+      窗外自然光可能一直在变，LED 屏幕的色温可能不稳定，背景可能有摩尔纹，房间可能太小，灯位也不一定能架到最舒服的位置。还有一个很现实的问题：灯光不只是给机器看的，也是给被拍摄的人看的。如果画面很好看，但出镜的人被照得睁不开眼，表达状态被破坏，那也是失败的布光。
+    </p>
+    <p class="fade d3">
+      摄影师不能只盯着监视器，也要观察现场的人。主光的高度、侧光的角度、光比的控制、灯具和人物之间的距离，都不只是技术参数，它们也会影响被拍摄者的状态。尤其是口播和访谈，人物表达本身就是画面的核心。摄影师要做的，是在画面效果、现场效率和出镜者舒适度之间找到平衡。
+    </p>
+  </div>
+</section>
+
+<!-- ============== ABOUT ============== -->
+<section class="about">
+  <div class="about-grid">
+    <div class="portrait-card fade">
+      <img src="assets/portrait.png" alt="耿成康"/>
+      <span class="placeholder-tag">geng chengkang · 2025</span>
+    </div>
+    <div>
+      <span class="eyebrow fade">05 ／ 关于我</span>
+      <h2 class="fade d1">我的影像经历</h2>
+      <p class="fade d2">
+        过去我作为导演、摄影和剪辑，完整参与过多部故事短片、微党课、MV、活动记录等视频的制作。故事短片训练了我对人物状态、空间关系、镜头组织和情绪节奏的判断；宣传片和活动记录则让我更习惯在有限时间、有限场地和有限设备条件下完成拍摄任务。很多时候，现场条件并不理想，但也正是这些限制，让我开始意识到：摄影不是等一切都准备好之后再按下录制键，而是在不完美的现场里，尽可能做出准确、稳定、有效的画面判断。
+      </p>
+      <p class="fade d2">
+        相比故事短片里更外显的调度，Talking 更像是在一个相对克制的空间里做细节控制。它不靠复杂运动吸引注意力，而是靠人物状态、光线质感、背景层次和整体气质留住观众。对我来说，这不是从零开始进入一个陌生领域，而是把我过去在短片创作中积累的导演意识、摄影意识和剪辑意识，进一步集中到人物表达和空间塑造上。
+      </p>
+      <p class="fade d2">
+        我觉得故事短片给了我一个很好的基础：它让我习惯从内容出发，而不是从设备出发；从人物状态出发，而不是只看参数；从观众感受出发，而不是只追求画面表面上的精致。现在我想做的，是把这些经验更系统地转向口播和访谈类拍摄，去学习如何在更高标准的团队和流程里，把一个人物、一段表达和一个空间真正组织成一套成熟的 Talking 画面。
+      </p>
+      <p class="fade d3">
+        我的优势在于，我不是只从器材或参数理解影像，而是习惯从内容出发。一个好的 Talking 画面，既要有干净的曝光、准确的色彩和稳定的布光，也要知道这个人物适合什么样的光，这个背景应该提供多少信息，这个空间要不要有温度，观众看到这个画面时会不会愿意继续听下去。过去的故事短片创作让我习惯从人物、情绪、节奏和信息接收出发，而这些，也正是 Talking 摄影关注的东西。
+      </p>
+      <p class="fade d3">
+        所以我想加入影视飓风，并不只是因为热爱，而是因为它确实影响了我拍视频的方式。我希望进入一个对画面标准、现场流程和内容表达都有高要求的环境，把我过去拍短片时积累的导演意识、摄影判断和内容理解，真正放进影视飓风的工作流里。
+      </p>
+      <dl class="facts fade d4">
+        <dt>身份</dt><dd>南京师范大学 · 外国语学院 · 英语笔译 · 2025 级硕士研究生</dd>
+        <dt>实习经历</dt><dd>
+          上海幻电信息科技有限公司（哔哩哔哩） · 2026.02 – 2026.05<br/>
+          江苏省教育考试院 · 2025.10 – 2026.01<br/>
+          上海好酷文化创意有限公司 · 2024.07 – 2024.09
+        </dd>
+        <dt>语言能力</dt><dd>
+          TEM-8 · 75 分良好 &nbsp;／&nbsp; TEM-4 · 86 分优秀<br/>
+          CET-6 · 584 &nbsp;／&nbsp; CET-4 · 611<br/>
+          普通话二级乙等
+        </dd>
+        <dt>影像 / 字幕工具</dt><dd>Premiere Pro · DaVinci Resolve · Final Cut Pro · After Effects · Photoshop · Blender · 剪映 · Aegisub · Subtitle Edit 等</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PORTFOLIO · BILIBILI ============== -->
+<section class="portfolio">
+  <div class="wrap" style="margin-bottom:1em">
+    <span class="eyebrow fade">06 ／ 已经做过的影像</span>
+    <h2 class="fade d1">作品集</h2>
+    <p class="fade d2">
+      下面是我之前参与制作的几支短片。它们不是 Talking 摄影，但都是"用画面把一个想法讲清楚"的练习——节奏、光线、人物气质、信息密度。我希望把这些经验带进 Talking 摄影中。
+    </p>
+  </div>
+  <div class="vid-grid">
+    <article class="vidcard fade">
+      <div class="player" data-bvid="BV1JnXSBqEzL" style="--from:#2b1f12;--to:#080604;--cover:url(assets/covers/BV1JnXSBqEzL.jpg)">
+        <div class="poster">
+          <span class="num">短片 / 01</span>
+          <span class="title">项目被砍后，<br/>我在湖边遇到了苏东坡？</span>
+        </div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4 L20 12 L7 20 Z"/></svg></div>
+      </div>
+      <div class="meta">
+        <span class="num">短片 / 01</span>
+        <h3>短片《心如霁月明》</h3>
+        <p class="role-zh">本人负责本片编剧、制片、拍摄、剪辑、片尾曲创作、字幕翻译等工作。</p>
+        <a class="open" href="https://www.bilibili.com/video/BV1JnXSBqEzL/" target="_blank" rel="noopener">在 B 站打开 ↗</a>
+      </div>
+    </article>
+
+    <article class="vidcard fade d1">
+      <div class="player" data-bvid="BV1n1YSzrEdk" style="--from:#1c2418;--to:#070907;--cover:url(assets/covers/BV1n1YSzrEdk.jpg)">
+        <div class="poster">
+          <span class="num">短片 / 02</span>
+          <span class="title">打工 8 年被嫌弃，<br/>竟在一盒茶叶里找到了慰藉</span>
+        </div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4 L20 12 L7 20 Z"/></svg></div>
+      </div>
+      <div class="meta">
+        <span class="num">短片 / 02 · 省级一等奖</span>
+        <h3>2025 年安徽省大学生国际贸易综合技能大赛<br/>（短视频赛项）省级一等奖作品</h3>
+        <p class="role-zh">本人负责本片导演、编剧、拍摄、剪辑、特效制作、字幕翻译等工作。</p>
+        <a class="open" href="https://www.bilibili.com/video/BV1n1YSzrEdk/" target="_blank" rel="noopener">在 B 站打开 ↗</a>
+      </div>
+    </article>
+
+    <article class="vidcard fade">
+      <div class="player" data-bvid="BV1WkSAY1Ew3" style="--from:#10182a;--to:#050608;--cover:url(assets/covers/BV1WkSAY1Ew3.jpg)">
+        <div class="poster">
+          <span class="num">短片 / 03</span>
+          <span class="title">队长想做茶文化视频，<br/>我却想拍太空巨制？</span>
+        </div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4 L20 12 L7 20 Z"/></svg></div>
+      </div>
+      <div class="meta">
+        <span class="num">短片 / 03</span>
+        <h3>短片《星际传奇：祁红茶香》</h3>
+        <p class="role-zh">本人负责本片导演、编剧、拍摄、剪辑、特效制作等工作。</p>
+        <a class="open" href="https://www.bilibili.com/video/BV1WkSAY1Ew3/" target="_blank" rel="noopener">在 B 站打开 ↗</a>
+      </div>
+    </article>
+
+    <article class="vidcard fade d1">
+      <div class="player" data-bvid="BV1X5xve6EbJ" style="--from:#2a1410;--to:#080403;--cover:url(assets/covers/BV1X5xve6EbJ.jpg)">
+        <div class="poster">
+          <span class="num">短片 / 04 · 杜比视界</span>
+          <span class="title">还是学艺不精，<br/>只有外研社国才杯省二的水平</span>
+        </div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4 L20 12 L7 20 Z"/></svg></div>
+      </div>
+      <div class="meta">
+        <span class="num">短片 / 04 · 省级二等奖</span>
+        <h3>短片《爷爷的心事》</h3>
+        <p class="role-zh">2024 年"外研社·国才杯"全国大学生外语能力大赛（短视频赛项）省级二等奖作品。<br/>本人负责本片导演、编剧、制片、拍摄、剪辑等工作。</p>
+        <a class="open" href="https://www.bilibili.com/video/BV1X5xve6EbJ/" target="_blank" rel="noopener">在 B 站打开 ↗</a>
+      </div>
+    </article>
+
+    <article class="vidcard fade">
+      <div class="player" data-bvid="BV168411f7XA" style="--from:#191815;--to:#0c0c0a;--cover:url(assets/covers/BV168411f7XA.jpg)">
+        <div class="poster">
+          <span class="num">短片 / 05</span>
+          <span class="title">学渣集结，<br/>揭秘挂科传奇！</span>
+        </div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4 L20 12 L7 20 Z"/></svg></div>
+      </div>
+      <div class="meta">
+        <span class="num">短片 / 05</span>
+        <h3>短片《卦科》</h3>
+        <p class="role-zh">本人负责本片导演、编剧、制片、拍摄、剪辑等工作。</p>
+        <a class="open" href="https://www.bilibili.com/video/BV168411f7XA/" target="_blank" rel="noopener">在 B 站打开 ↗</a>
+      </div>
+    </article>
+
+    <article class="vidcard fade d1">
+      <div class="player" data-bvid="BV1hFFQz5E83" style="--from:#1c1c1d;--to:#0e0e0e;--cover:url(assets/covers/BV1hFFQz5E83.jpg)">
+        <div class="poster">
+          <span class="num">短片 / 06</span>
+          <span class="title">这动作戏，<br/>有点东西！</span>
+        </div>
+        <div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4 L20 12 L7 20 Z"/></svg></div>
+      </div>
+      <div class="meta">
+        <span class="num">短片 / 06</span>
+        <h3>短片《奇术宗师》</h3>
+        <p class="role-zh">本人负责本片导演、编剧、制片、拍摄、剪辑、调色、AI 后期等工作。</p>
+        <a class="open" href="https://www.bilibili.com/video/BV1hFFQz5E83/" target="_blank" rel="noopener">在 B 站打开 ↗</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== CLOSING ============== -->
+<section class="closing" data-lit>
+  <div class="wrap">
+    <p class="fade">Talking 看起来很简单，<br/>却藏着无数细小的判断。</p>
+    <p class="fade d1">观众未必会意识到这些选择的存在，<br/>但正是这些<span class="em">看不见的选择</span>，<br/>让镜头前的人被更好地看见。</p>
+  </div>
+</section>
+
+<div class="cta">
+  <a class="btn primary" href="assets/resume.pdf" target="_blank" rel="noopener">
+    <span>下载简历 PDF</span><span class="arrow">↓</span>
+  </a>
+  <a class="btn" href="#top">
+    <span>回到开头</span><span class="arrow">↑</span>
+  </a>
+</div>
+
+<footer>
+  <div class="contact-block">
+    <h4>contact</h4>
+    <a href="mailto:tomgeng2003@foxmail.com">tomgeng2003@foxmail.com</a>
+    <a href="tel:+8615955208228">+86 159 5520 8228</a>
+  </div>
+  <div class="sig">
+    <span>© 耿成康 · 2025</span>
+    <span>made for 应聘 影视飓风 摄影师（Talking 方向）实习生</span>
+  </div>
+</footer>
+
+</main>
+
+<script>
+/* ===== global cursor spotlight ===== */
+(function(){
+  const root=document.documentElement;
+  let tx=window.innerWidth/2, ty=window.innerHeight/2;
+  let cx=tx, cy=ty;
+  let raf=null;
+  const supportsHover=window.matchMedia("(hover: hover)").matches;
+  if(supportsHover){
+    window.addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;if(!raf)tick();},{passive:true});
+  }
+  function tick(){
+    cx+=(tx-cx)*.18; cy+=(ty-cy)*.18;
+    root.style.setProperty("--mx",cx+"px");
+    root.style.setProperty("--my",cy+"px");
+    if(Math.abs(tx-cx)>.5||Math.abs(ty-cy)>.5){raf=requestAnimationFrame(tick)}else{raf=null}
+  }
+  if(supportsHover)tick();
+})();
+
+/* ===== hero portrait reveal ===== */
+(function(){
+  const p=document.getElementById("heroPortrait");
+  if(!p) return;
+  let raf=null, tx=-9999, ty=-9999, cx=tx, cy=ty;
+  function update(){
+    cx+=(tx-cx)*.25; cy+=(ty-cy)*.25;
+    p.style.setProperty("--lx",cx+"px");
+    p.style.setProperty("--ly",cy+"px");
+    if(Math.abs(tx-cx)>.5||Math.abs(ty-cy)>.5){raf=requestAnimationFrame(update);}else{raf=null;}
+  }
+  function onMove(e){
+    const r=p.getBoundingClientRect();
+    const nx=e.clientX-r.left, ny=e.clientY-r.top;
+    if(!p.classList.contains("lit")){
+      // first contact (or after onLeave): snap, don't lerp from -9999
+      cx=nx; cy=ny;
+      p.style.setProperty("--lx",cx+"px");
+      p.style.setProperty("--ly",cy+"px");
+    }
+    tx=nx; ty=ny;
+    p.classList.add("lit");
+    if(!raf) update();
+  }
+  function onLeave(){
+    p.classList.remove("lit");
+    // immediately drop the mask center off-screen — no animated trail
+    cx=-9999; cy=-9999; tx=-9999; ty=-9999;
+    p.style.setProperty("--lx","-9999px");
+    p.style.setProperty("--ly","-9999px");
+  }
+  // Listen on the whole hero so cursor proximity (not just hover on the image) starts revealing
+  const hero=p.closest(".hero");
+  (hero||window).addEventListener("pointermove",onMove,{passive:true});
+  (hero||window).addEventListener("pointerleave",onLeave);
+})();
+
+/* ===== section-aware lighting toggle ===== */
+(function(){
+  // Sections that KEEP the cursor spotlight on
+  const litSections=document.querySelectorAll("[data-lit]");
+  if(!litSections.length) return;
+  const visible=new Set();
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) visible.add(e.target);
+      else visible.delete(e.target);
+    });
+    document.body.classList.toggle("lights-off", visible.size===0);
+  },{rootMargin:"-30% 0px -30% 0px",threshold:0});
+  litSections.forEach(s=>io.observe(s));
+})();
+
+/* ===== fade-in observer ===== */
+(function(){
+  const els=document.querySelectorAll(".fade");
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+  },{rootMargin:"-8% 0px -8% 0px",threshold:0.05});
+  els.forEach(el=>io.observe(el));
+})();
+
+/* ===== 3-point lighting lab ===== */
+(function(){
+  const lab=document.getElementById("lab");
+  if(!lab) return;
+  const lights={
+    key:{handle:document.getElementById("handleKey"),  light:document.getElementById("lightKey"),  input:document.getElementById("iKey"),  val:document.getElementById("vKey"),  x:32,y:30,intensity:88},
+    fill:{handle:document.getElementById("handleFill"),light:document.getElementById("lightFill"),input:document.getElementById("iFill"),val:document.getElementById("vFill"),x:70,y:42,intensity:52},
+    rim:{handle:document.getElementById("handleRim"),  light:document.getElementById("lightRim"),  input:document.getElementById("iRim"),  val:document.getElementById("vRim"),  x:78,y:18,intensity:48}
+  };
+
+  function render(name,animate){
+    const L=lights[name];
+    L.handle.style.left=L.x+"%"; L.handle.style.top=L.y+"%";
+    L.light.style.left=L.x+"%"; L.light.style.top=L.y+"%";
+    L.light.style.opacity=(L.intensity/100).toFixed(2);
+    L.input.value=L.intensity;
+    L.val.textContent=Math.round(L.intensity)+"%";
+    if(animate){
+      L.handle.style.transition="left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),transform .15s ease,box-shadow .3s ease";
+      L.light.style.transition ="left .8s cubic-bezier(.5,0,.2,1),top .8s cubic-bezier(.5,0,.2,1),opacity .8s ease";
+      setTimeout(()=>{
+        L.handle.style.transition="";
+        L.light.style.transition="";
+      },820);
+    }
+  }
+  Object.keys(lights).forEach(k=>render(k,false));
+
+  // sliders
+  Object.keys(lights).forEach(k=>{
+    const L=lights[k];
+    L.input.addEventListener("input",()=>{
+      L.intensity=+L.input.value;
+      L.val.textContent=L.intensity+"%";
+      L.light.style.opacity=(L.intensity/100).toFixed(2);
+      clearActivePreset();
+    });
+  });
+
+  // drag handles
+  let dragging=null, offset={x:0,y:0};
+  function getPct(clientX,clientY){
+    const r=lab.getBoundingClientRect();
+    return {x:Math.max(2,Math.min(98,((clientX-r.left)/r.width)*100)),
+            y:Math.max(2,Math.min(98,((clientY-r.top)/r.height)*100))};
+  }
+  Object.values(lights).forEach(L=>{
+    L.handle.addEventListener("pointerdown",e=>{
+      dragging=L;
+      L.handle.classList.add("drag");
+      L.handle.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    L.handle.addEventListener("pointermove",e=>{
+      if(dragging!==L) return;
+      const p=getPct(e.clientX,e.clientY);
+      L.x=p.x; L.y=p.y;
+      L.handle.style.left=L.x+"%"; L.handle.style.top=L.y+"%";
+      L.light.style.left=L.x+"%";  L.light.style.top=L.y+"%";
+      clearActivePreset();
+    });
+    const stop=e=>{
+      if(dragging===L){dragging=null;L.handle.classList.remove("drag");}
+    };
+    L.handle.addEventListener("pointerup",stop);
+    L.handle.addEventListener("pointercancel",stop);
+  });
+
+  // presets
+  // image-plane coordinates: subject anchored at (50, 55).
+  // ratios derive from intensity(key) : intensity(fill) — e.g. 3:1 ≈ 90/30.
+  const PRESETS={
+    // 口播 · 单人正面口述：柔光主光约 35° off-axis，对侧 fill 抬阴影但不消除，
+    //              小功率发光罩 hair-light 保留头发轮廓。整体 3:1，干净不抢戏。
+    monolog:  {key:[32,30,88],  fill:[70,42,52], rim:[78,18,48]},
+    // 采访 · 纪录片 sit-down：
+    //   key 是大柔光箱（Octa / 灯笼），伦勃朗位 ~45° azimuth · 30° 俯角，
+    //   光线漫射、包裹感强、过渡柔和——所以 key 强度只到 86，不顶满。
+    //   fill 真实存在（约 1/3 key），给暗面留细节，叙事友好。
+    //   rim 中等，只承担把人和背景分开的工作，不抢戏。
+    //   整体 3:1，气质自然、对话感、尊重被摄者。
+    //   参考：60 Minutes 嘉宾席 / Vox Conversations / Netflix 纪录片头像。
+    interview:{key:[26,28,86],  fill:[76,48,32], rim:[80,24,58]},
+    // 两人对谈 · cross-key 标准 rig：
+    //   两盏 soft key 宽向两侧机位边，角度向内打，光束在 A 和 B 之间交叉。
+    //   左侧那盏 key 越过 A 把 B 打亮；右侧那盏 key（这里复用 fill 位）越过 B 把 A 打亮。
+    //   视觉签名：每人朝向对方的内侧脸颊是亮的（short-light），
+    //   朝向画面边缘的外侧脸颊在阴影里——两张脸的亮面"指向画面中心"。
+    //   中央顶部 hair-light 给两人头顶一致的分离。整体光比约 2:1。
+    //   参考：60 Minutes 双机位访谈 / Errol Morris Interrotron / 纪录片 sit-down。
+    //   注：灯具物理位置在两侧机位旁（不会摆在 A B 中间——那会进画且不合 rig 逻辑）。
+    duo:      {key:[22,30,82],  fill:[78,30,78], rim:[50,12,58]},
+    // 杂志肖像 · 高端封面：
+    //   key 是硬光——Fresnel / Beauty Dish / 抛物罩 + grid，光斑边缘清晰。
+    //   极端 short-light 位（~65° azimuth · 50° 俯角），从画面左上角"砸"下来。
+    //   key 顶满 100%（peak 强，光衰快，体现硬光特性）。
+    //   fill 几乎熄火（10%）——让暗面掉到接近全黑，对比拉到 8:1+。
+    //   rim 同样硬、同样满功率，沿脸侧打出一条清晰光边（specular edge）。
+    //   key & rim 等强但位置不同，构成"两道硬光夹一张脸"的图形化结构。
+    //   参考：Annie Leibovitz / Platon / Vanity Fair 封面 / Wired hero portrait。
+    editorial:{key:[16,12,100], fill:[82,72,10], rim:[90,18,100]}
+  };
+  function applyPreset(name){
+    const p=PRESETS[name]; if(!p) return;
+    lab.classList.toggle("duo", name==="duo");
+    Object.keys(p).forEach(k=>{
+      const [x,y,i]=p[k];
+      lights[k].x=x; lights[k].y=y; lights[k].intensity=i;
+      render(k,true);
+    });
+  }
+  function clearActivePreset(){
+    document.querySelectorAll("#presets button").forEach(b=>b.classList.remove("active"));
+  }
+  document.querySelectorAll("#presets button").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      clearActivePreset(); btn.classList.add("active");
+      applyPreset(btn.dataset.preset);
+    });
+  });
+})();
+
+/* ===== eye catchlight ===== */
+(function(){
+  const block=document.getElementById("eyeBlock");
+  if(!block) return;
+  const cL=document.getElementById("cL");
+  const cR=document.getElementById("cR");
+  const svg=block.querySelector("svg");
+  function move(e){
+    const r=svg.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width)*280;
+    const y=((e.clientY-r.top)/r.height)*100;
+    function place(c,cx,cy){
+      const dx=Math.max(-10,Math.min(10,(x-cx)*.15));
+      const dy=Math.max(-7, Math.min(7, (y-cy)*.15));
+      c.setAttribute("cx",cx+dx);
+      c.setAttribute("cy",cy+dy);
+    }
+    place(cL,70,50);
+    place(cR,210,50);
+  }
+  block.addEventListener("pointermove",move);
+})();
+
+/* ===== bilibili facade: click to load + autoplay ===== */
+(function(){
+  document.querySelectorAll(".player[data-bvid]").forEach(p=>{
+    p.addEventListener("click",()=>{
+      if(p.classList.contains("playing")) return;
+      const bvid=p.dataset.bvid;
+      const iframe=document.createElement("iframe");
+      iframe.src=`https://player.bilibili.com/player.html?bvid=${bvid}&page=1&autoplay=1&high_quality=1&danmaku=0`;
+      iframe.setAttribute("scrolling","no");
+      iframe.setAttribute("frameborder","no");
+      iframe.setAttribute("allowfullscreen","true");
+      iframe.setAttribute("allow","autoplay; fullscreen");
+      p.appendChild(iframe);
+      p.classList.add("playing");
+    });
+  });
+})();
+
+/* ===== color temp slider ===== */
+(function(){
+  const s=document.getElementById("tempSlider");
+  if(!s) return;
+  function apply(){
+    const w=+s.value/100;
+    document.documentElement.style.setProperty("--warm",w);
+  }
+  s.addEventListener("input",apply); apply();
+})();
+
+</script>
+</body>
+</html>
